@@ -2,7 +2,7 @@
 
 [![Support me on Ko-fi](assets/ko-fi/support_me_on_kofi_beige.png)](https://ko-fi.com/sgmdev)
 
-Turns the Oppo Find X9's **Snap Key** hardware button into a custom, user-configurable shortcut. Download [![here]](https://github.com/sergiogm8/snapkey-mapper/releases/download/SnapKey-Mapper-1.0.0/snapkey-mapper.apk)
+Turns the Oppo Find X9's **Snap Key** hardware button into a custom, user-configurable shortcut. Download [here](https://github.com/sergiogm8/snapkey-mapper/releases/download/SnapKey-Mapper-1.0.0/snapkey-mapper.apk)
 
 ## The problem
 
