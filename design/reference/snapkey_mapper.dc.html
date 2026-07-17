@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+  <meta name="design_doc_mode" content="canvas">
+  <style>
+    body { margin: 0; }
+    a { color: oklch(47% 0.17 var(--hue-p)); }
+    a:hover { color: oklch(40% 0.17 var(--hue-p)); }
+  </style>
+</helmet>
+<div style="{{ cssVars }}min-height:100vh;box-sizing:border-box;padding:64px 40px 96px;background:oklch(96% 0.004 var(--hue-p));display:flex;flex-direction:column;align-items:center;gap:40px;font-family:'Roboto',system-ui,sans-serif;">
+
+  <div style="text-align:center;">
+    <div style="font-size:32px;font-weight:700;color:oklch(22% 0.02 var(--hue-p));">SnapKey Mapper</div>
+    <div style="font-size:15px;color:oklch(45% 0.02 var(--hue-p));margin-top:6px;">Material 3 &middot; remap the Snap Key long-press to a custom action</div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:56px;">
+
+    <!-- ============ HOME · LIGHT ============ -->
+    <div data-screen-label="Home · Light" style="display:flex;flex-direction:column;align-items:center;gap:var(--gap-md);">
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-md);background:#fff;border:1px solid oklch(88% 0.006 var(--hue-p));font-size:13px;font-weight:600;color:oklch(30% 0.01 var(--hue-p));">
+        <span style="font-family:'Material Symbols Outlined';font-size:16px;">light_mode</span>Home &middot; Light
+      </div>
+      <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" hint-size="412,892">
+        <div style="height:100%;overflow-y:auto;background:oklch(98.5% 0.003 var(--hue-p));box-sizing:border-box;">
+          <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-header);">
+            <div style="width:40px;height:40px;border-radius:var(--r-sm);background:oklch(93% 0.045 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(20% 0.06 var(--hue-p));">bolt</span>
+            </div>
+            <div style="flex:1;font-size:22px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">SnapKey Mapper</div>
+            <div style="width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(40% 0.012 var(--hue-p));">settings</span>
+            </div>
+          </div>
+
+          <div style="margin:12px 20px;padding:var(--pad-hero);border-radius:var(--r-lg);background:oklch(93% 0.045 var(--hue-p));display:flex;align-items:center;gap:var(--gap-md);">
+            <div style="width:52px;height:52px;border-radius:50%;background:oklch(47% 0.17 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:26px;color:#fff;">power_settings_new</span>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:17px;font-weight:600;color:oklch(20% 0.06 var(--hue-p));">Mapping is on</div>
+              <div style="font-size:13px;color:oklch(20% 0.06 var(--hue-p));opacity:0.85;margin-top:2px;">Long-press Snap Key to fire your action</div>
+            </div>
+            <div style="width:52px;height:32px;border-radius:var(--r-md);background:oklch(47% 0.17 var(--hue-p));display:flex;align-items:center;padding:4px;flex-shrink:0;box-sizing:border-box;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#fff;margin-left:auto;"></div>
+            </div>
+          </div>
+
+          <div style="margin:4px 20px 12px;padding:var(--pad-card);border-radius:var(--r-md);background:oklch(95.5% 0.005 var(--hue-p));">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.4px;color:oklch(40% 0.012 var(--hue-p));text-transform:uppercase;margin-bottom:10px;">When Snap Key is pressed</div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);">
+              <div style="width:44px;height:44px;border-radius:var(--r-sm);background:oklch(93% 0.06 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(24% 0.08 var(--hue-t));">photo_camera</span>
+              </div>
+              <div style="flex:1;font-size:16px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">Opens Camera</div>
+              <div style="padding:8px 16px;border-radius:var(--r-md);background:oklch(93% 0.045 var(--hue-p));font-size:13px;font-weight:600;color:oklch(20% 0.06 var(--hue-p));">Change</div>
+            </div>
+          </div>
+
+          <div style="margin:4px 20px 20px;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:var(--pad-btn);border-radius:var(--r-md);border:1.5px solid oklch(84% 0.008 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(47% 0.17 var(--hue-p));">bolt</span>
+              <span style="font-size:15px;font-weight:600;color:oklch(47% 0.17 var(--hue-p));">Test action now</span>
+            </div>
+            <div style="text-align:center;font-size:12px;color:oklch(40% 0.012 var(--hue-p));margin-top:6px;">Fires instantly &mdash; no need to press the key</div>
+          </div>
+
+          <div style="padding:4px 20px 0;font-size:13px;font-weight:600;color:oklch(40% 0.012 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;">Setup checklist</div>
+          <div style="margin:8px 20px 20px;border-radius:var(--r-md);background:oklch(95.5% 0.005 var(--hue-p));overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(46% 0.09 var(--hue-s));">check_circle</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">Notification access</div>
+                <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));margin-top:1px;">Needed to detect the Snap Key</div>
+              </div>
+              <div style="padding:6px 12px;border-radius:var(--r-md);background:oklch(92% 0.045 var(--hue-s));font-size:12px;font-weight:600;color:oklch(20% 0.05 var(--hue-s));flex-shrink:0;">Granted</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(52% 0.16 var(--hue-t));">battery_alert</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">Battery optimization</div>
+                <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));margin-top:1px;">Exempt the app so it keeps running</div>
+              </div>
+              <div style="padding:6px 14px;border-radius:var(--r-md);background:oklch(52% 0.16 var(--hue-t));font-size:12px;font-weight:600;color:#fff;flex-shrink:0;">Fix</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(52% 0.16 var(--hue-t));">toggle_off</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">ColorOS autostart</div>
+                <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));margin-top:1px;">Allow autostart so it survives reboot</div>
+              </div>
+              <div style="padding:6px 14px;border-radius:var(--r-md);background:oklch(52% 0.16 var(--hue-t));font-size:12px;font-weight:600;color:#fff;flex-shrink:0;">Fix</div>
+            </div>
+          </div>
+
+          <div style="padding:4px 20px 0;font-size:13px;font-weight:600;color:oklch(40% 0.012 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;">Recent activity</div>
+          <div style="margin:8px 20px 24px;border-radius:var(--r-md);background:oklch(95.5% 0.005 var(--hue-p));overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(46% 0.09 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(18% 0.008 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));">9:42 AM</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(46% 0.09 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(18% 0.008 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));">9:15 AM</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(46% 0.09 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(18% 0.008 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));">Yesterday</div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ============ HOME · DARK ============ -->
+    <div data-screen-label="Home · Dark" style="display:flex;flex-direction:column;align-items:center;gap:var(--gap-md);">
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-md);background:#fff;border:1px solid oklch(88% 0.006 var(--hue-p));font-size:13px;font-weight:600;color:oklch(30% 0.01 var(--hue-p));">
+        <span style="font-family:'Material Symbols Outlined';font-size:16px;">dark_mode</span>Home &middot; Dark
+      </div>
+      <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" dark="true" hint-size="412,892">
+        <div style="height:100%;overflow-y:auto;background:oklch(16% 0.006 var(--hue-p));box-sizing:border-box;">
+          <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-header);">
+            <div style="width:40px;height:40px;border-radius:var(--r-sm);background:oklch(38% 0.13 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(92% 0.045 var(--hue-p));">bolt</span>
+            </div>
+            <div style="flex:1;font-size:22px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">SnapKey Mapper</div>
+            <div style="width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(78% 0.01 var(--hue-p));">settings</span>
+            </div>
+          </div>
+
+          <div style="margin:12px 20px;padding:var(--pad-hero);border-radius:var(--r-lg);background:oklch(38% 0.13 var(--hue-p));display:flex;align-items:center;gap:var(--gap-md);">
+            <div style="width:52px;height:52px;border-radius:50%;background:oklch(82% 0.09 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:26px;color:oklch(28% 0.09 var(--hue-p));">power_settings_new</span>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:17px;font-weight:600;color:oklch(92% 0.045 var(--hue-p));">Mapping is on</div>
+              <div style="font-size:13px;color:oklch(92% 0.045 var(--hue-p));opacity:0.85;margin-top:2px;">Long-press Snap Key to fire your action</div>
+            </div>
+            <div style="width:52px;height:32px;border-radius:var(--r-md);background:oklch(82% 0.09 var(--hue-p));display:flex;align-items:center;padding:4px;flex-shrink:0;box-sizing:border-box;">
+              <div style="width:24px;height:24px;border-radius:50%;background:oklch(28% 0.09 var(--hue-p));margin-left:auto;"></div>
+            </div>
+          </div>
+
+          <div style="margin:4px 20px 12px;padding:var(--pad-card);border-radius:var(--r-md);background:oklch(21% 0.008 var(--hue-p));">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.4px;color:oklch(78% 0.01 var(--hue-p));text-transform:uppercase;margin-bottom:10px;">When Snap Key is pressed</div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);">
+              <div style="width:44px;height:44px;border-radius:var(--r-sm);background:oklch(38% 0.11 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(92% 0.06 var(--hue-t));">photo_camera</span>
+              </div>
+              <div style="flex:1;font-size:16px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">Opens Camera</div>
+              <div style="padding:8px 16px;border-radius:var(--r-md);background:oklch(38% 0.13 var(--hue-p));font-size:13px;font-weight:600;color:oklch(92% 0.045 var(--hue-p));">Change</div>
+            </div>
+          </div>
+
+          <div style="margin:4px 20px 20px;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:var(--pad-btn);border-radius:var(--r-md);border:1.5px solid oklch(34% 0.01 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(82% 0.09 var(--hue-p));">bolt</span>
+              <span style="font-size:15px;font-weight:600;color:oklch(82% 0.09 var(--hue-p));">Test action now</span>
+            </div>
+            <div style="text-align:center;font-size:12px;color:oklch(78% 0.01 var(--hue-p));margin-top:6px;">Fires instantly &mdash; no need to press the key</div>
+          </div>
+
+          <div style="padding:4px 20px 0;font-size:13px;font-weight:600;color:oklch(78% 0.01 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;">Setup checklist</div>
+          <div style="margin:8px 20px 20px;border-radius:var(--r-md);background:oklch(21% 0.008 var(--hue-p));overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(80% 0.07 var(--hue-s));">check_circle</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">Notification access</div>
+                <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));margin-top:1px;">Needed to detect the Snap Key</div>
+              </div>
+              <div style="padding:6px 12px;border-radius:var(--r-md);background:oklch(36% 0.07 var(--hue-s));font-size:12px;font-weight:600;color:oklch(90% 0.04 var(--hue-s));flex-shrink:0;">Granted</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(85% 0.1 var(--hue-t));">battery_alert</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">Battery optimization</div>
+                <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));margin-top:1px;">Exempt the app so it keeps running</div>
+              </div>
+              <div style="padding:6px 14px;border-radius:var(--r-md);background:oklch(85% 0.1 var(--hue-t));font-size:12px;font-weight:600;color:oklch(30% 0.09 var(--hue-t));flex-shrink:0;">Fix</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-row);">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(85% 0.1 var(--hue-t));">toggle_off</span>
+              <div style="flex:1;">
+                <div style="font-size:15px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">ColorOS autostart</div>
+                <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));margin-top:1px;">Allow autostart so it survives reboot</div>
+              </div>
+              <div style="padding:6px 14px;border-radius:var(--r-md);background:oklch(85% 0.1 var(--hue-t));font-size:12px;font-weight:600;color:oklch(30% 0.09 var(--hue-t));flex-shrink:0;">Fix</div>
+            </div>
+          </div>
+
+          <div style="padding:4px 20px 0;font-size:13px;font-weight:600;color:oklch(78% 0.01 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;">Recent activity</div>
+          <div style="margin:8px 20px 24px;border-radius:var(--r-md);background:oklch(21% 0.008 var(--hue-p));overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(80% 0.07 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(92% 0.006 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));">9:42 AM</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(80% 0.07 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(92% 0.006 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));">9:15 AM</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--gap-sm);padding:var(--pad-list);">
+              <span style="font-family:'Material Symbols Outlined';font-size:18px;color:oklch(80% 0.07 var(--hue-s));">check_circle</span>
+              <div style="flex:1;font-size:14px;color:oklch(92% 0.006 var(--hue-p));">Opened Camera</div>
+              <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));">Yesterday</div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ============ ACTION PICKER · LIGHT ============ -->
+    <div data-screen-label="Action Picker · Light" style="display:flex;flex-direction:column;align-items:center;gap:var(--gap-md);">
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-md);background:#fff;border:1px solid oklch(88% 0.006 var(--hue-p));font-size:13px;font-weight:600;color:oklch(30% 0.01 var(--hue-p));">
+        <span style="font-family:'Material Symbols Outlined';font-size:16px;">light_mode</span>Action Picker &middot; Light
+      </div>
+      <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" hint-size="412,892">
+        <div style="height:100%;overflow-y:auto;background:oklch(98.5% 0.003 var(--hue-p));box-sizing:border-box;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:8px;padding:16px 12px;">
+            <div style="width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(18% 0.008 var(--hue-p));">arrow_back</span>
+            </div>
+            <div style="font-size:20px;font-weight:500;color:oklch(18% 0.008 var(--hue-p));">Choose action</div>
+          </div>
+
+          <div style="display:flex;margin:8px 20px 20px;border-radius:var(--r-md);border:1px solid oklch(84% 0.008 var(--hue-p));overflow:hidden;">
+            <div onClick="{{ selectAppTab }}" style="{{ tabAppStyleLight }}flex:1;">Open app</div>
+            <div style="width:1px;background:oklch(84% 0.008 var(--hue-p));"></div>
+            <div onClick="{{ selectUrlTab }}" style="{{ tabUrlStyleLight }}flex:1;">Open URL</div>
+          </div>
+
+          <sc-if value="{{ isTabApp }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 20px;flex:1;">
+              <div style="display:flex;align-items:center;gap:10px;padding:var(--pad-list);border-radius:var(--r-lg);background:oklch(93.5% 0.006 var(--hue-p));margin-bottom:12px;">
+                <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(40% 0.012 var(--hue-p));">search</span>
+                <span style="font-size:15px;color:oklch(40% 0.012 var(--hue-p));">Search apps</span>
+              </div>
+              <div style="border-radius:var(--r-md);background:oklch(95.5% 0.005 var(--hue-p));overflow:hidden;">
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(93% 0.06 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(24% 0.08 var(--hue-t));">photo_camera</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Camera</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:6px solid oklch(47% 0.17 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(92% 0.045 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(20% 0.05 var(--hue-s));">chat_bubble</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Messages</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(60% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(93% 0.045 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(20% 0.06 var(--hue-p));">music_note</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Music Player</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(60% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(92% 0.045 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(20% 0.05 var(--hue-s));">map</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Maps</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(60% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(84% 0.008 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(93% 0.06 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(24% 0.08 var(--hue-t));">edit_note</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Notes</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(60% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(92% 0.045 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(20% 0.05 var(--hue-s));">cloud</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(18% 0.008 var(--hue-p));">Weather</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(60% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isTabUrl }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 20px;flex:1;">
+              <div style="font-size:12px;font-weight:600;color:oklch(47% 0.17 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;margin-bottom:8px;">URL</div>
+              <div style="display:flex;align-items:center;gap:10px;padding:var(--pad-row);border-radius:var(--r-md);border:1.5px solid oklch(47% 0.17 var(--hue-p));margin-bottom:8px;">
+                <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(47% 0.17 var(--hue-p));">link</span>
+                <span style="flex:1;font-size:15px;color:oklch(40% 0.012 var(--hue-p));">https://your-link.com</span>
+              </div>
+              <div style="font-size:12.5px;color:oklch(40% 0.012 var(--hue-p));padding-left:4px;">Opens in your default browser when triggered</div>
+            </div>
+          </sc-if>
+
+
+          <div style="padding:16px 20px 24px;">
+            <div style="text-align:center;padding:var(--pad-btn);border-radius:var(--r-lg);background:oklch(47% 0.17 var(--hue-p));color:#fff;font-size:15px;font-weight:600;">Save action</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ============ ACTION PICKER · DARK ============ -->
+    <div data-screen-label="Action Picker · Dark" style="display:flex;flex-direction:column;align-items:center;gap:var(--gap-md);">
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-md);background:#fff;border:1px solid oklch(88% 0.006 var(--hue-p));font-size:13px;font-weight:600;color:oklch(30% 0.01 var(--hue-p));">
+        <span style="font-family:'Material Symbols Outlined';font-size:16px;">dark_mode</span>Action Picker &middot; Dark
+      </div>
+      <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" dark="true" hint-size="412,892">
+        <div style="height:100%;overflow-y:auto;background:oklch(16% 0.006 var(--hue-p));box-sizing:border-box;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:8px;padding:16px 12px;">
+            <div style="width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Material Symbols Outlined';font-size:22px;color:oklch(92% 0.006 var(--hue-p));">arrow_back</span>
+            </div>
+            <div style="font-size:20px;font-weight:500;color:oklch(92% 0.006 var(--hue-p));">Choose action</div>
+          </div>
+
+          <div style="display:flex;margin:8px 20px 20px;border-radius:var(--r-md);border:1px solid oklch(34% 0.01 var(--hue-p));overflow:hidden;">
+            <div onClick="{{ selectAppTab }}" style="{{ tabAppStyleDark }}flex:1;">Open app</div>
+            <div style="width:1px;background:oklch(34% 0.01 var(--hue-p));"></div>
+            <div onClick="{{ selectUrlTab }}" style="{{ tabUrlStyleDark }}flex:1;">Open URL</div>
+          </div>
+
+          <sc-if value="{{ isTabApp }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 20px;flex:1;">
+              <div style="display:flex;align-items:center;gap:10px;padding:var(--pad-list);border-radius:var(--r-lg);background:oklch(25% 0.009 var(--hue-p));margin-bottom:12px;">
+                <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(78% 0.01 var(--hue-p));">search</span>
+                <span style="font-size:15px;color:oklch(78% 0.01 var(--hue-p));">Search apps</span>
+              </div>
+              <div style="border-radius:var(--r-md);background:oklch(21% 0.008 var(--hue-p));overflow:hidden;">
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(38% 0.11 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(92% 0.06 var(--hue-t));">photo_camera</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Camera</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:6px solid oklch(82% 0.09 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(34% 0.07 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(90% 0.045 var(--hue-s));">chat_bubble</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Messages</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(50% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(38% 0.13 var(--hue-p));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(92% 0.045 var(--hue-p));">music_note</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Music Player</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(50% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(34% 0.07 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(90% 0.045 var(--hue-s));">map</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Maps</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(50% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);border-bottom:1px solid oklch(34% 0.01 var(--hue-p));">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(38% 0.11 var(--hue-t));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(92% 0.06 var(--hue-t));">edit_note</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Notes</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(50% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--gap-row);padding:var(--pad-list);">
+                  <div style="width:38px;height:38px;border-radius:var(--r-sm);background:oklch(34% 0.07 var(--hue-s));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Material Symbols Outlined';font-size:19px;color:oklch(90% 0.045 var(--hue-s));">cloud</span></div>
+                  <div style="flex:1;font-size:15px;color:oklch(92% 0.006 var(--hue-p));">Weather</div>
+                  <div style="width:20px;height:20px;border-radius:50%;border:1.5px solid oklch(50% 0.015 var(--hue-p));flex-shrink:0;"></div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isTabUrl }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 20px;flex:1;">
+              <div style="font-size:12px;font-weight:600;color:oklch(82% 0.09 var(--hue-p));text-transform:uppercase;letter-spacing:0.4px;margin-bottom:8px;">URL</div>
+              <div style="display:flex;align-items:center;gap:10px;padding:var(--pad-row);border-radius:var(--r-md);border:1.5px solid oklch(82% 0.09 var(--hue-p));margin-bottom:8px;">
+                <span style="font-family:'Material Symbols Outlined';font-size:20px;color:oklch(82% 0.09 var(--hue-p));">link</span>
+                <span style="flex:1;font-size:15px;color:oklch(78% 0.01 var(--hue-p));">https://your-link.com</span>
+              </div>
+              <div style="font-size:12.5px;color:oklch(78% 0.01 var(--hue-p));padding-left:4px;">Opens in your default browser when triggered</div>
+            </div>
+          </sc-if>
+
+
+          <div style="padding:16px 20px 24px;">
+            <div style="text-align:center;padding:var(--pad-btn);border-radius:var(--r-lg);background:oklch(82% 0.09 var(--hue-p));color:oklch(20% 0.06 var(--hue-p));font-size:15px;font-weight:600;">Save action</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;colorMood&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;Vivid Trio&quot;,
+    &quot;options&quot;: [&quot;Vivid Trio&quot;, &quot;Sunset Pop&quot;, &quot;Ocean Calm&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Feel&quot;
+  },
+  &quot;shape&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;Soft&quot;,
+    &quot;options&quot;: [&quot;Soft&quot;, &quot;Bold&quot;, &quot;Sharp&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Feel&quot;
+  },
+  &quot;density&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;Comfortable&quot;,
+    &quot;options&quot;: [&quot;Comfortable&quot;, &quot;Compact&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Feel&quot;
+  }
+}">
+class Component extends DCLogic {
+  state = { tab: 'app' };
+
+  selectAppTab = () => this.setState({ tab: 'app' });
+  selectUrlTab = () => this.setState({ tab: 'url' });
+
+  renderVals() {
+    const moods = {
+      'Vivid Trio': { p: 268, s: 165, t: 55 },
+      'Sunset Pop': { p: 350, s: 35, t: 275 },
+      'Ocean Calm': { p: 220, s: 185, t: 145 },
+    };
+    const shapes = {
+      Soft: { sm: 14, md: 20, lg: 28 },
+      Bold: { sm: 20, md: 28, lg: 40 },
+      Sharp: { sm: 8, md: 12, lg: 16 },
+    };
+    const densities = {
+      Comfortable: { header: '20px 20px 8px', hero: '20px', card: '16px', row: '14px 16px', list: '12px 16px', btn: '14px', gapMd: '16px', gapRow: '14px', gapSm: '12px' },
+      Compact: { header: '12px 16px 6px', hero: '14px', card: '11px', row: '9px 12px', list: '8px 12px', btn: '10px', gapMd: '12px', gapRow: '10px', gapSm: '8px' },
+    };
+
+    const mood = moods[this.props.colorMood] || moods['Vivid Trio'];
+    const shape = shapes[this.props.shape] || shapes.Soft;
+    const d = densities[this.props.density] || densities.Comfortable;
+
+    const cssVars =
+      '--hue-p:' + mood.p + ';--hue-s:' + mood.s + ';--hue-t:' + mood.t + ';' +
+      '--r-sm:' + shape.sm + 'px;--r-md:' + shape.md + 'px;--r-lg:' + shape.lg + 'px;' +
+      '--pad-header:' + d.header + ';--pad-hero:' + d.hero + ';--pad-card:' + d.card + ';' +
+      '--pad-row:' + d.row + ';--pad-list:' + d.list + ';--pad-btn:' + d.btn + ';' +
+      '--gap-md:' + d.gapMd + ';--gap-row:' + d.gapRow + ';--gap-sm:' + d.gapSm + ';';
+
+    const tabPill = (active, light) => {
+      const bg = active ? (light ? 'oklch(47% 0.17 var(--hue-p))' : 'oklch(82% 0.09 var(--hue-p))') : 'transparent';
+      const fg = active ? (light ? '#fff' : 'oklch(20% 0.06 var(--hue-p))') : (light ? 'oklch(40% 0.012 var(--hue-p))' : 'oklch(78% 0.01 var(--hue-p))');
+      return 'text-align:center;padding:12px 4px;font-size:13px;font-weight:600;cursor:pointer;background:' + bg + ';color:' + fg + ';';
+    };
+
+    return {
+      cssVars,
+      isTabApp: this.state.tab === 'app',
+      isTabUrl: this.state.tab === 'url',
+      selectAppTab: this.selectAppTab,
+      selectUrlTab: this.selectUrlTab,
+      tabAppStyleLight: tabPill(this.state.tab === 'app', true),
+      tabUrlStyleLight: tabPill(this.state.tab === 'url', true),
+      tabAppStyleDark: tabPill(this.state.tab === 'app', false),
+      tabUrlStyleDark: tabPill(this.state.tab === 'url', false),
+    };
+  }
+}
+</script>
+</body>
+</html>

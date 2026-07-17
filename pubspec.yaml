@@ -1,0 +1,38 @@
+name: snapkey_mapper
+description: "SnapKey Mapper — remap the Oppo Find X9 Snap Key (via DND toggle interception) to a custom action."
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/ko-fi/
+
+# Launcher icon generation (Android only -- see CLAUDE.md, no iOS/other platforms in
+# this project). Source images are flat bolt marks on the app's theme seed color
+# (see lib/theme/app_theme.dart _seedColor), drawn at assets/icon/. Regenerate with:
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 26
+  adaptive_icon_background: "#334FB8"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"

@@ -1,0 +1,107 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <!-- Lets ActionExecutor's triggered notification auto-launch over the lock screen instead of
+         just tap-to-open. On API 34+ this is also gated by a user-grantable "special access" toggle
+         (Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT) — the manifest permission alone isn't
+         sufficient there, same pattern as notification policy access. -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <!-- "Display over other apps" special access. Holding this grant is one of the documented
+         exemptions to Background Activity Launch restrictions, which lets ActionExecutor call
+         startActivity() directly from the background service instead of going through a
+         notification. Granted by the user via Settings.ACTION_MANAGE_OVERLAY_PERMISSION. -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <!-- Required by the implicit AlarmClock.ACTION_SET_ALARM intent used by the "set alarm" action.
+         Normal protection level — granted automatically at install, no runtime prompt needed. -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <application
+        android:label="SnapKey Mapper"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Persistent foreground service — owns the dynamically-registered DND BroadcastReceiver.
+             specialUse is the only foreground-service type that fits "listen for a hardware-button-
+             triggered system DND toggle and run a user-configured action"; none of the standard
+             categories (camera, location, mediaPlayback, dataSync, ...) apply. -->
+        <service
+            android:name=".SnapKeyListenerService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Listens for a hardware-button-triggered system DND toggle to run a user-configured action; no other foreground service type fits this use case."/>
+        </service>
+
+        <!-- BOOT_COMPLETED is one of the few implicit broadcasts still allowed to be manifest
+             -declared (unlike ACTION_INTERRUPTION_FILTER_CHANGED) — restarts the service after a
+             reboot if it was previously enabled. -->
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <queries>
+        <!-- Required to query activities that can process text, see:
+             https://developer.android.com/training/package-visibility and
+             https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+             In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- Required for SnapKeyMethodChannelHandler.getInstalledApps() (queryIntentActivities with
+             ACTION_MAIN/CATEGORY_LAUNCHER) to see the full set of launchable apps. Without this,
+             Android 11+ package visibility rules silently filter the result down to a small implicit
+             set (apps that share the same signing key, ContentProvider clients, etc.), which is why
+             most user-installed apps weren't showing up in the action picker. -->
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+        <!-- Required by url_launcher (AppBar Ko-fi link) to resolve an https browser via
+             canLaunchUrl/launchUrl on Android 11+ package visibility rules. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+</manifest>
