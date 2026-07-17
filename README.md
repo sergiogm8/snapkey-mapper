@@ -2,7 +2,7 @@
 
 [![Support me on Ko-fi](assets/ko-fi/support_me_on_kofi_beige.png)](https://ko-fi.com/sgmdev)
 
-Turns the Oppo Find X9's **Snap Key** hardware button into a custom, user-configurable shortcut.
+Turns the Oppo Find X9's **Snap Key** hardware button into a custom, user-configurable shortcut. Download [![here]](https://github.com/sergiogm8/snapkey-mapper/releases/download/SnapKey-Mapper-1.0.0/snapkey-mapper.apk)
 
 ## The problem
 
@@ -68,22 +68,6 @@ background trigger to actually survive on ColorOS:
 7. Allow background activity in ColorOS's own battery control (separate from, and not covered by,
    the standard Android permission above)
 8. Allow autostart (survives reboot)
-
-## Building
-
-```bash
-# Install dependencies
-flutter pub get
-
-# Run (Android is the only configured platform)
-flutter run
-
-# Static analysis
-flutter analyze
-
-# Release build
-flutter build apk
-```
 
 ## Support
 
