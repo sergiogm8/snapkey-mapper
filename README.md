@@ -40,10 +40,6 @@ background process management than a lean native `Service`. Flutter's job is lim
 configuration UI (permission checklist, action picker, trigger log); once configured, the native
 side keeps working even if the Flutter engine isn't running.
 
-See [`CLAUDE.md`](CLAUDE.md) for the full architecture breakdown (service lifecycle, permission
-model, launch-strategy fallbacks, caching) and [`TASKS.md`](TASKS.md) for the phased implementation
-history.
-
 ## Requirements
 
 - Android 8.0+ (`minSdk 26`)
